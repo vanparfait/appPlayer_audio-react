@@ -7,11 +7,13 @@ const Player = () => {
   console.log(playListValues);
   const dispatch = useDispatch();
   const audioRef = useRef();
+  //audioRef.current =
+  console.log(audioRef);
 
   return (
     <audio
-      //   controls
-      id="audio-player"
+      //controls
+      //id="audio-player"
       ref={audioRef}
       src={
         playListValues?.songs?.find(
