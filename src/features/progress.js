@@ -11,7 +11,7 @@ export const progressSlice = createSlice({
   reducers: {
     fillDurationVariable: (state, action) => {
       state.current = action.payload.currentTime;
-      state.totalDuration = action.payload.duration;
+      state.totalDuration = action.payload.totalDuration;
     },
     updateProgress: (state, action) => {
       state.current = action.payload;

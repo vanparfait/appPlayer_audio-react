@@ -9,7 +9,7 @@ const Player = () => {
   const dispatch = useDispatch();
   const audioRef = useRef();
   //audioRef.current =
-  console.log(audioRef);
+  //console.log(audioRef);
 
   function handleLoadedData(e) {
     if (playListValues.songs) {
@@ -28,7 +28,7 @@ const Player = () => {
 
   return (
     <audio
-      //controls
+      controls
       //id="audio-player"
       ref={audioRef}
       src={
