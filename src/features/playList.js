@@ -14,6 +14,9 @@ export const playListSlice = createSlice({
       state.songs = action.payload;
       state.currentMusicID = action.payload[0].id;
     },
+    toogleLecture: (state, action) => {
+      state.play = !state.play;
+    },
   },
 });
 
@@ -26,4 +29,4 @@ export function getMusicsData(action) {
 }
 
 export default playListSlice.reducer;
-export const { addBaseSongs } = playListSlice.actions;
+export const { addBaseSongs, toogleLecture } = playListSlice.actions;
