@@ -1,5 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import NextButton from "./NextButton";
+import PreviousButton from "./PreviousButton";
+import TooglePlayButton from "./TooglePlayButton";
+import Progress from "./Progress";
 
 const PlayerPannel = () => {
   const playListValues = useSelector((state) => state.playList);
@@ -28,7 +32,13 @@ const PlayerPannel = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-center mb-5"></div>
+      <div className="flex justify-center items-center mb-5">
+        <PreviousButton />
+
+        <TooglePlayButton />
+        <NextButton />
+      </div>
+      <Progress />
     </div>
   );
 };
