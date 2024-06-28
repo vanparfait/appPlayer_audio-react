@@ -1,17 +1,40 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import formatValue from "../../utils/formatValue";
 
 const Progress = () => {
   const progressData = useSelector((state) => state.progress);
   console.log(progressData);
+
+  function handleProgressClick(e) {
+    const player = document.getElementById("audio-player");
+    console.log(player);
+
+    const rect = e.target.getBoundingClientRect();
+    const width = rect.width;
+    const x = e.clientX - rect.left;
+    console.log((x / width) * progressData.totalDuration);
+    player.currentTime = (x / width) * progressData.totalDuration;
+  }
+
   return (
     <div className="max-w-[800px] mx-auto">
-      <div className="bg-slate-900 h-2 rounded cursor-pointer overflow-hidden">
-        <div className="bg-indigo-400 origin-left h-full pointer-events-none"></div>
+      <div
+        onClick={handleProgressClick}
+        className="bg-slate-900 h-2 rounded cursor-pointer overflow-hidden"
+      >
+        <div
+          style={{
+            transform: `scaleX(${
+              progressData.current / progressData.totalDuration
+            })`,
+          }}
+          className="bg-indigo-400 origin-left h-full pointer-events-none"
+        ></div>
       </div>
       <div className="flex justify-between">
-        <span>2:15</span>
-        <span>9:15</span>
+        <span>{formatValue(progressData.current)}</span>
+        <span>{formatValue(progressData.totalDuration)}</span>
       </div>
     </div>
   );

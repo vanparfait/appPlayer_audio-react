@@ -29,7 +29,7 @@ const Player = () => {
   return (
     <audio
       controls
-      //id="audio-player"
+      id="audio-player"
       ref={audioRef}
       src={
         playListValues?.songs?.find(
