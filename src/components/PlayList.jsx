@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMusicsData } from "../features/playlist";
+import { changeSong, getMusicsData } from "../features/playlist";
 
 const PlayList = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const PlayList = () => {
       {playListValues?.songs?.length &&
         playListValues.songs.map((song) => (
           <li
+            onClick={() => dispatch(changeSong(song.id))}
             key={song.id}
             className="p-2 border-2 font-semibold bg-indigo-100 hover:bg-indigo-200 text-slate-800 mb-3 rounded cursor-pointer"
           >

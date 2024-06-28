@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fillDurationVariable, updateProgress } from "../features/progress";
 
@@ -8,8 +8,14 @@ const Player = () => {
   console.log(playListValues);
   const dispatch = useDispatch();
   const audioRef = useRef();
-  //audioRef.current =
-  //console.log(audioRef);
+
+  useEffect(() => {
+    if (playListValues.songs && playListValues.play) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [playListValues]);
 
   function handleLoadedData(e) {
     if (playListValues.songs) {
@@ -28,7 +34,7 @@ const Player = () => {
 
   return (
     <audio
-      controls
+      //controls
       id="audio-player"
       ref={audioRef}
       src={
